@@ -1,3 +1,39 @@
 <resources>
-    <string name="app_name">MVVMLoginExample</string>
+    <string name="app_name">MVVM-DataBindig-Dagger2-RecyclerView-Example</string>
+
+
+    <string-array name="names">
+
+        <item>Cacho Castaña</item>
+        <item>Sergio Denis</item>
+        <item>Raúl Lavié</item>
+        <item>Un fulano colado</item>
+        <item>Carlos Monzón</item>
+        <item>Alain Delon</item>
+        <item>Ringo Bonavena</item>
+        <item>Discepolín</item>
+        <item>Juan Domingo Perón</item>
+        <item>El gorila</item>
+        <item>El último de la fila</item>
+
+    </string-array>
+
+    <string-array name="emails">
+
+        <item>cacho@debuenosaires.com.ar</item>
+        <item>sergio@debuenosaires.com.ar</item>
+        <item>raul@debuenosaires.com.ar</item>
+        <item>fulano@debuenosaires.com.ar</item>
+        <item>pegamecampeon@debuenosaires.com.ar</item>
+        <item>alain@debuenosaires.com.ar</item>
+        <item>ringo@debuenosaires.com.ar</item>
+        <item>cambalache@debuenosaires.com.ar</item>
+        <item>pocho@debuenosaires.com.ar</item>
+        <item>soydebarrionorte@debuenosaires.com.ar</item>
+        <item>delfin@debuenosaires.com.ar</item>
+
+    </string-array>
+
+
+
 </resources>

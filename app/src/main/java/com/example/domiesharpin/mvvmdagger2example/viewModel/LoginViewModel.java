@@ -1,5 +1,6 @@
 package com.example.domiesharpin.mvvmdagger2example.viewModel;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.databinding.ObservableField;
@@ -14,6 +15,7 @@ public class LoginViewModel extends ViewModel {
     public ObservableField<String> usernameFieldBoundToXML = new ObservableField<>("");
     public ObservableField<String> passwordFieldBoundToXML = new ObservableField<>("");
     private MutableLiveData<String> response;
+    public LoginViewModelInterface loginViewModelInterface;
 
     private LoginRepository loginRepository;
 
@@ -27,8 +29,16 @@ public class LoginViewModel extends ViewModel {
         response = loginRepository.getData(usernameFieldBoundToXML.get(), passwordFieldBoundToXML.get());
     }
 
+    public void goToRecyclerActivity(){
+        loginViewModelInterface.goToRecyclerActivity();
+    }
 
-    public MutableLiveData<String> getResponse() {
+    public LiveData<String> getResponse() {
         return response;
+    }
+
+
+    public interface LoginViewModelInterface{
+        void goToRecyclerActivity();
     }
 }

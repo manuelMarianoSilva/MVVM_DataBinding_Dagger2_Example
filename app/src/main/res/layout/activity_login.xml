@@ -71,6 +71,12 @@
             android:textAlignment="center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
+        <Button
+            android:onClick="@{v -> loginviewmodel.goToRecyclerActivity()}"
+            android:text="ir al recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
 </layout>
