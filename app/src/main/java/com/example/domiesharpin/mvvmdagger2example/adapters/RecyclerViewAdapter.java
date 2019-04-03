@@ -1,32 +1,22 @@
 package com.example.domiesharpin.mvvmdagger2example.adapters;
 
-import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.domiesharpin.mvvmdagger2example.R;
 import com.example.domiesharpin.mvvmdagger2example.databinding.ItemLayoutBinding;
 import com.example.domiesharpin.mvvmdagger2example.remote.model.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>  {
 
-    private Context context;
-    private List<User> userList = new ArrayList<>();
+    private List<User> userList;
     private ItemViewHolderInterface itemViewHolderInterface;
-
-    public RecyclerViewAdapter(Context context, List<User> userList, ItemViewHolderInterface itemViewHolderInterface) {
-        this.context = context;
-        this.userList = userList;
-        this.itemViewHolderInterface = itemViewHolderInterface;
-    }
 
     @NonNull
     @Override
@@ -55,19 +45,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         void onItemClicked(int adapterPosition);
     }
 
+    public void setItemViewHolderInterface(ItemViewHolderInterface itemViewHolderInterface) {
+        this.itemViewHolderInterface = itemViewHolderInterface;
+    }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
+
+    static class MyViewHolder extends RecyclerView.ViewHolder {
 
         ItemLayoutBinding layoutBinding;
         ItemViewHolderInterface itemViewHolderInterface;
 
+        MyViewHolder(@NonNull ItemLayoutBinding binding) {
+            super(binding.getRoot());
 
-        public MyViewHolder(@NonNull ItemLayoutBinding itemView) {
-            super(itemView.getRoot());
-
-            layoutBinding = itemView;
-
-
+            this.layoutBinding = binding;
 
             layoutBinding.rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -76,8 +70,5 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 }
             });
         }
-
-
     }
-
 }
