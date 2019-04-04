@@ -1,68 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-    
-    
-    <data>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
         <variable
             name="loginviewmodel"
             type="com.example.domiesharpin.mvvmdagger2example.viewModel.LoginViewModel"/>
-
     </data>
-    
 
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".view.LoginActivity">
-
+        android:orientation="vertical">
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="User"
+                android:hint="Write 'Cacho' here to get a success response"
                 android:text="@={loginviewmodel.usernameFieldBoundToXML}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/password"
+            android:layout_below="@id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="Password (any will do to show functionality)"
+                android:inputType="textPassword"
                 android:text="@={loginviewmodel.passwordFieldBoundToXML}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
         </android.support.design.widget.TextInputLayout>
 
-
         <Button
+            android:layout_below="@id/password"
+            android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="enviar"
+            android:text="send"
             android:onClick="@{v -> loginviewmodel.login()}"/>
 
+        <Button
+            android:id="@+id/showpass"
+            android:layout_below="@id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="show password in textview below"
+            android:onClick="@{v -> loginviewmodel.showPassword()}"/>
+
         <TextView
+            android:layout_below="@+id/showpass"
             android:id="@+id/inserteRespuestaAqui"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,11 +75,10 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
         <Button
+            android:layout_alignParentBottom="true"
             android:onClick="@{v -> loginviewmodel.goToRecyclerActivity()}"
-            android:text="ir al recycler"
+            android:text="check recyclerview with mvvm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
+    </RelativeLayout>
 </layout>

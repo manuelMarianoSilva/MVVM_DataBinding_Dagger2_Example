@@ -1,5 +1,6 @@
 package com.example.domiesharpin.mvvmdagger2example.adapters;
 
+import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

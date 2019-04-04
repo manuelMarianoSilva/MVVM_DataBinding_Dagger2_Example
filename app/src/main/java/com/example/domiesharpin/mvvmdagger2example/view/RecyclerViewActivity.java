@@ -12,6 +12,7 @@ import com.example.domiesharpin.mvvmdagger2example.base.MyApplication;
 import com.example.domiesharpin.mvvmdagger2example.databinding.ActivityRecyclerViewBinding;
 import com.example.domiesharpin.mvvmdagger2example.remote.model.User;
 import com.example.domiesharpin.mvvmdagger2example.utils.ListMaker;
+import com.example.domiesharpin.mvvmdagger2example.viewModel.RecyclerViewActivityViewModel;
 
 import java.util.List;
 

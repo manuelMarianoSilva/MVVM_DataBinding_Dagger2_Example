@@ -26,17 +26,23 @@ public class LoginViewModel extends ViewModel {
     }
 
     public void login(){
-        response = loginRepository.getData(usernameFieldBoundToXML.get(), passwordFieldBoundToXML.get());
+        response = loginRepository.getData(
+                usernameFieldBoundToXML.get(),
+                passwordFieldBoundToXML.get()
+        );
     }
 
-    public void goToRecyclerActivity(){
-        loginViewModelInterface.goToRecyclerActivity();
+    public void showPassword(){
+        response = loginRepository.setPasswordToResponse(passwordFieldBoundToXML.get());
     }
 
     public LiveData<String> getResponse() {
         return response;
     }
 
+    public void goToRecyclerActivity(){
+        loginViewModelInterface.goToRecyclerActivity();
+    }
 
     public interface LoginViewModelInterface{
         void goToRecyclerActivity();

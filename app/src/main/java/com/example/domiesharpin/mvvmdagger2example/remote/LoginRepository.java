@@ -6,18 +6,21 @@ public class LoginRepository {
 
     private MutableLiveData<String> data = new MutableLiveData<>();
 
-
     public MutableLiveData<String> getData(String user, String password){
 
-        if (user.equals("Cacho"))
+        if ((user.trim().equals("Cacho")))
             data.setValue("Success!!!");
-        else
-            data.setValue("Error");
+        else data.setValue("Error");
 
         return data;
     }
 
     public MutableLiveData<String> getEmptyData(){
+        return data;
+    }
+
+    public MutableLiveData<String> setPasswordToResponse(String password) {
+        data.setValue(password);
         return data;
     }
 }
