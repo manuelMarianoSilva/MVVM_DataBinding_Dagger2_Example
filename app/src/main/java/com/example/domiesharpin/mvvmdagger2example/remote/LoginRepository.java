@@ -7,11 +7,7 @@ public class LoginRepository {
     private MutableLiveData<String> data = new MutableLiveData<>();
 
     public MutableLiveData<String> getData(String user, String password){
-
-        if ((user.trim().equals("Cacho")))
-            data.setValue("Success!!!");
-        else data.setValue("Error");
-
+        data.setValue((user.trim().equals("Cacho")) ? "Success" : "Error");
         return data;
     }
 
